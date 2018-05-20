@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/adultlib?characterEncoding=utf8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+  jpa:
+    show-sql: true
