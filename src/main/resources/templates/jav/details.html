@@ -18,7 +18,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-offset-1 col-lg-11">
-            <h3 th:text=" ${jav.title}"></h3>
+            <h3 th:text="${jav.title}"></h3>
         </div>
     </div>
     <div class="row">
@@ -27,6 +27,17 @@
         </div>
         <div class="col-lg-3">
             <h4 class="text-primary" th:text="${jav.number}"></h4>
+            <h4 class="text-muted" th:text="${'发行日期：'+jav.releaseDate}"></h4>
+            <h4 class="text-muted" th:text="${'时长：'+jav.movieLen}"></h4>
+            <h4 class="text-muted" th:if="${jav.director != null}" th:text="${'导演：'+jav.director.name}"></h4>
+            <h4 class="text-muted" th:if="${jav.maker != null}" th:text="${'制作商：'+jav.maker.name}"></h4>
+            <h4 class="text-muted" th:if="${jav.publisher != null}" th:text="${'发行商：'+jav.publisher.name}"></h4>
+            <h4 class="text-muted" th:if="${jav.series != null}" th:text="${'系列：'+jav.series.name}"></h4>
+            <h4 class="text-muted" th:unless="${#lists.isEmpty(jav.actors)}" th:text="${'演员：'}"></h4>
+            <h5 class="text-muted" th:unless="${#lists.isEmpty(jav.actors)}">
+                <span style="padding-right: 5px;" th:each="actor,actorStat:${jav.actors}"
+                      th:text="${actor.name}"></span>
+            </h5>
         </div>
     </div>
 </div>

@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @Document(collection = "javs")
 public class Jav {
@@ -26,13 +28,15 @@ public class Jav {
     private String localBigCover;
     private String title;
     @Field("release_date")
-    private String rleaseDate;
+    private String releaseDate;
     @Field("movie_len")
     private String movieLen;
-    private String director;
-    private String maker;
-    private String publisher;
-    private String series;
+    private Map<String, Object> director;
+    private Map<String, Object> maker;
+    private Map<String, Object> publisher;
+    private Map<String, Object> series;
+    private List<Map<String, Object>> actors;
+    private List<Map<String, Object>> tags;
     @Field("create_time")
     private Date crateTime;
 
@@ -100,12 +104,12 @@ public class Jav {
         this.title = title;
     }
 
-    public String getRleaseDate() {
-        return rleaseDate;
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setRleaseDate(String rleaseDate) {
-        this.rleaseDate = rleaseDate;
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public String getMovieLen() {
@@ -116,36 +120,52 @@ public class Jav {
         this.movieLen = movieLen;
     }
 
-    public String getDirector() {
+    public Map<String, Object> getDirector() {
         return director;
     }
 
-    public void setDirector(String director) {
+    public void setDirector(Map<String, Object> director) {
         this.director = director;
     }
 
-    public String getMaker() {
+    public Map<String, Object> getMaker() {
         return maker;
     }
 
-    public void setMaker(String maker) {
+    public void setMaker(Map<String, Object> maker) {
         this.maker = maker;
     }
 
-    public String getPublisher() {
+    public Map<String, Object> getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(String publisher) {
+    public void setPublisher(Map<String, Object> publisher) {
         this.publisher = publisher;
     }
 
-    public String getSeries() {
+    public Map<String, Object> getSeries() {
         return series;
     }
 
-    public void setSeries(String series) {
+    public void setSeries(Map<String, Object> series) {
         this.series = series;
+    }
+
+    public List<Map<String, Object>> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<Map<String, Object>> actors) {
+        this.actors = actors;
+    }
+
+    public List<Map<String, Object>> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Map<String, Object>> tags) {
+        this.tags = tags;
     }
 
     public Date getCrateTime() {
@@ -167,12 +187,14 @@ public class Jav {
                 ", bigCover='" + bigCover + '\'' +
                 ", localBigCover='" + localBigCover + '\'' +
                 ", title='" + title + '\'' +
-                ", rleaseDate='" + rleaseDate + '\'' +
+                ", releaseDate='" + releaseDate + '\'' +
                 ", movieLen='" + movieLen + '\'' +
-                ", director='" + director + '\'' +
-                ", maker='" + maker + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", series='" + series + '\'' +
+                ", director=" + director +
+                ", maker=" + maker +
+                ", publisher=" + publisher +
+                ", series=" + series +
+                ", actors=" + actors +
+                ", tags=" + tags +
                 ", crateTime=" + crateTime +
                 '}';
     }

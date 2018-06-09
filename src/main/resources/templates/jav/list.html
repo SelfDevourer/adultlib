@@ -19,7 +19,7 @@
     <div class="row">
         <div th:each="jav:${javs}" class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
             <div class="thumbnail">
-                <a th:href="@{'details/' + ${jav.id}}" class="thumbnail">
+                <a th:href="@{'details/' + ${jav.id}}" class="thumbnail" target="_blank">
                     <img th:src="@{${jav.localSmallCover}}">
                 </a>
                 <div class="caption">
@@ -33,7 +33,7 @@
 <script>
     var html = '<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">\n' +
         '            <div class="thumbnail">\n' +
-        '                <a href="details/ID" class="thumbnail">\n' +
+        '                <a href="details/ID" class="thumbnail" target="_blank">\n' +
         '                    <img src="SMALL_COVER">\n' +
         '                </a>\n' +
         '                <div class="caption">\n' +
